@@ -9,16 +9,45 @@
   --border-light-grey: #cccccc;
   --border-dark-grey: #222222;
 }
+body,
+p {
+  margin: 0;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+.relative {
+  position: relative;
+}
 
 .flex {
   display: flex;
 }
-.flex-one {
-  flex: 1;
+.justify-center {
+  justify-content: center;
 }
 .unselectable {
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* Chrome, Safari and Opera syntax */
   -moz-user-select: none; /* Firefox syntax */
   -ms-user-select: none; /* IE 10+ syntax */
+}
+.bold {
+  font-weight: 800;
+}
+.semibold {
+  font-weight: 600;
+}
+.medium-size {
+  font-size: 1.2rem;
+}
+.medium-margin-bottom {
+  margin-bottom: 1.7rem;
+}
+.small-margin-bottom {
+  margin-bottom: 1rem;
+}
+.very-small-margin-bottom {
+  margin-bottom: 0.5rem;
 }
