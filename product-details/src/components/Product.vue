@@ -7,7 +7,11 @@
       :class="showCartDropdown ? 'cart-selected' : ''"
       class="cart unselectable"
     >
-      My Cart ( {{ cart.length }} )
+      <span v-if="isWindowWidthGreaterThan470">My Cart</span
+      ><span v-else
+        ><img class="icon" src="/images/cart.png" alt="cart logo"
+      /></span>
+      &nbsp;( {{ cart.length }} )
     </div>
 
     <div v-if="showCartDropdown" class="cart-dropdown unselectable">
@@ -126,6 +130,7 @@ export default {
   name: "Product",
   data() {
     return {
+      windowWidth: window.innerWidth,
       showCartDropdown: false,
       product: null,
       selectedSize: null,
@@ -149,6 +154,9 @@ export default {
       }
       return processed.reverse();
     },
+    isWindowWidthGreaterThan470() {
+      return this.windowWidth > 470;
+    },
   },
   methods: {
     toggleCartDropdown() {
@@ -170,6 +178,11 @@ export default {
       }
       this.selectedSize = sizeId;
     },
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
   },
   async created() {
     await fetch(
@@ -339,6 +352,11 @@ p {
 }
 .left-side {
   margin-right: 18px;
+}
+.icon {
+  height: 20px;
+  width: 20px;
+  margin-top: 4px;
 }
 @media (max-width: 470px) {
   .cart {
