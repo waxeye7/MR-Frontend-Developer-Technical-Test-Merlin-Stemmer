@@ -194,6 +194,8 @@ export default {
   align-items: center;
   margin-top: 14px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 1440px;
 }
 .cart {
